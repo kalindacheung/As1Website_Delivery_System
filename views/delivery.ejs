@@ -1,0 +1,48 @@
+
+    <%- include("./partials/header.ejs") %>
+    <h1>Order Delivery Page</h1>
+ 
+    <ul>
+        <li style="text-align: center;">
+          <p><strong>TIME ORDERED:</strong> <%= orderInTransit.orderDate.toLocaleString("en-US") %></p>
+          <p><strong>CUSTOMER NAME:</strong> <%= orderInTransit.customerName %> </p>
+          <p><strong>ADDRESS:</strong> <%= orderInTransit.customerAddress %> </p>
+          <p><strong>PHONE NUMBER:</strong> <%= orderInTransit.customerPhoneNumber %> </p>
+          <p><strong>NUMBER OF ITEMS:</strong> <%= orderInTransit.items.length %> </p>
+          <p><strong>TOTAL:</strong> $<%= orderInTransit.totalPrice.toFixed(2) %> </p>
+          
+            <form method="POST" action="/deliveryCancelled/<%= orderInTransit._id %>?_method=PATCH">
+              <input type="hidden" name="driverId" value="<%= deliveryDriver._id %>"/>
+              <button class="btn" style="margin: 10px 0px; height: 50px; background-color: deeppink;">Cancel Delivery Selection</button>
+            </form>
+            
+            <form method="POST" action="/orderDelivered/<%= orderInTransit._id %>?_method=PATCH">
+                <input type="hidden" name="driverId" value="<%= deliveryDriver._id %>"/>
+                <button class="btn" style="margin: 10px 0px; height: 50px;">Order Delivered</button>
+            </form>
+         </li>
+   </ul>
+
+   <% if (items.length === 0) { %> 
+
+   <h1>Upload Image of Delivery</h1>
+   <div>
+     <form action="/uploadImage" method="POST" enctype="multipart/form-data">
+       <div class="formContainer", style="height: 120px; margin-top: 10px; padding: 0px 24px;">
+         <input type="file" name="imageOfFood" value="" required />
+         <input type="hidden" name="driverId" value="<%= deliveryDriver._id %>"/>
+         <input type="hidden" name="orderId" value="<%=orderInTransit._id%>" required />
+         <button class="btn" type="submit">Submit</button>
+       </div>
+     </form>
+   </div>
+   <% } else { %>
+   <h2>Image of Delivery Uploaded!</h2>
+   <div>
+        <% for (image of items) { %>
+            <img class="deliveryPhoto" src="../uploads/<%=image.name%>">
+        <% } %>
+   </div>
+  <% } %>
+ </body>
+</html>

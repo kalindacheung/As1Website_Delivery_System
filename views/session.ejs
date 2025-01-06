@@ -1,0 +1,29 @@
+
+    <%- include("./partials/header.ejs") %>
+
+   <h1>Orders Ready To Deliver</h1>
+   <h2>Choose an order</h2>
+    
+   <ol>
+        <% for (order of orders) { %>
+            <% if (order.status === "READY FOR DELIVERY") { %>
+            <li>
+                <p><strong>TIME ORDERED:</strong> <%= order.orderDate.toLocaleString("en-US") %></p>
+                <p><strong>CUSTOMER NAME:</strong> <%= order.customerName %> </p>
+                <p><strong>ADDRESS:</strong> <%= order.customerAddress %> </p>
+                <p><strong>PHONE NUMBER:</strong> <%= order.customerPhoneNumber %> </p>
+                <p><strong>NUMBER OF ITEMS:</strong> <%= order.items.length %> </p>
+                <p><strong>TOTAL:</strong> $<%= order.totalPrice.toFixed(2) %> </p>
+                
+                <form method="POST" action="/selectOrder/<%= order._id %>?_method=PATCH">
+                    <input type="hidden" name="driverId" value="<%= driver._id %>"/>
+                    <button class="btn" style="margin-top: 8px;">Select Order</button>
+                </form>
+            </li>
+            <hr>
+            <% } %>  
+        <% } %>
+    </ol>
+
+</body>
+</html>

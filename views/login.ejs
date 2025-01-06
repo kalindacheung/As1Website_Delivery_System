@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Delivery Driver</title>
+</head>
+<body>
+        <!-- LOGIN FORM -->
+        <div class="formContainer" id="login">
+            <h1>Login</h1>
+            <form method="POST" action="/session">
+                <input type="text" placeholder="Enter email" name="textfieldEmail"/>
+                <input type="password" placeholder="Enter password" name="textfieldPassword"/>
+                <button class="containerButton">Login</button>
+            </form>   
+            <button class="btn" onclick = "toggle()">Click here to sign up!</button>        
+        </div>
+        
+        <!-- SIGN UP FORM -->
+        <div class="formContainer" id="signup" style="height: 540px;">
+            <h1>Delivery Driver Sign-up</h1>
+            <form method="POST" action="/signup">
+                <input type="text" placeholder="Enter full name" name="textfieldName"/>
+                <input type="text" placeholder="Enter License Plate" name="textfieldPlate"/>
+                <input type="text" placeholder="Enter email" name="textfieldEmail"/>
+                <input type="password" placeholder="Enter password" name="textfieldPassword"/>
+                <button class="containerButton">Create Account</button>
+            </form>
+            <% if (errorMessage != null) { %>
+                <h2><%= errorMessage %></h2>
+            <% } %>
+            <button class="btn" onclick = "toggle()">Already have an account?</button>        
+        </div>
+
+
+<script>
+
+    function toggle() {
+        console.log("TOGGLE CALLED");
+        var x = document.getElementById('login');
+        var y = document.getElementById('signup');
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>

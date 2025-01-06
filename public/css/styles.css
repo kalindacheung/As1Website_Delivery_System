@@ -1,0 +1,129 @@
+
+body {
+    background-color: #d71921;
+    text-align: center;
+    color: #ffeba7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+strong {
+    font-weight: 600;
+}
+
+ol, ul {
+    width: 400px;
+    border: 2px solid black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #344D77;
+    border-radius: 14px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    color: white;
+    text-align: left;
+}
+
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+input {
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: white
+}
+
+.btn, form *{
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.formContainer {
+    height: 400px;
+    width: 400px;
+    background-color: rgba(255,255,255, 0.15);
+    text-align: center;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+}
+.containerButton {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: black;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn {
+    margin-top: 30px;
+    width: 50%;
+    background-color:#59BAB7;
+    color: black;
+    font-size: 12px;
+    border-radius: 5px;
+    color: white;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;  
+    align-items: center;
+}
+.logo {
+    border-radius: 30px;
+    background-color: white;
+    width: 100px;
+}
+.deliveryPhoto {
+    width: 300px;
+    margin-bottom: 32px;
+}
+.logout {
+    color: white;
+    display: flex;
+    align-items: center;
+
+}
+.logoutImage {
+    width: 20px;
+}
+
+a:link, :visited, :hover, :active {
+    text-decoration: none;
+    color: white;
+}
+
+#login {
+    display: none;
+}
+#signup {
+    display: block;
+}
